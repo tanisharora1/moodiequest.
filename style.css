@@ -1,0 +1,209 @@
+.header {
+    background: linear-gradient(to right, #101820, #1e3d59);
+    padding: 20px;
+    width: 100%;
+    margin: 0;
+}
+
+.brand h1 {
+    font-family: Pacifico;
+    font-size: 50px;
+    color: bisque;
+}
+
+.brand p {
+    font-family: Pacifico;
+    font-size: 15px;
+    color: bisque;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: bisque;
+}
+
+.header {
+    display: block;
+}
+
+.welcome {
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.welcome h3 {
+    margin: 0;
+}
+
+.nav {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.nav a {
+    color: bisque;
+    text-align: right;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.feedback-form label {
+    display: block;
+}
+
+.gender-options {
+    border: 0;
+    padding: 0;
+}
+
+.gender-options legend {
+    float: left;
+    margin-right: 10px;
+}
+
+.gender-options label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer {
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(to right, #101820, #1e3d59);
+    color: bisque;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.mood-title {
+    background-color: #101820;
+    color: bisque;
+    text-align: center;
+    font-size: 25px;
+}
+
+.feedback {
+    background-color: #1e3d59;
+    color: bisque;
+    text-align: center;
+}
+
+.feedback-form {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.welcome {
+    background-color: #1a1a1a;
+    color: bisque;
+}
+
+.home {
+    background-image: url("entertainment.png");
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding: 100px 20px 20px;
+}
+
+.home a {
+    color: bisque;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0c263f, #285f89);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 300px;
+    max-width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+}
+
+.feedback-form button {
+    padding: 8px 14px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.about {
+    padding: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.about h6 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.mood-page-heading {
+    text-align: center;
+    font-size: 25px;
+}
+
+.nav a + a {
+    margin-left: 15px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.entertainment-list {
+    padding: 20px;
+}
+
+.entertainment-list h5 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.movies a {
+    padding: 12px;
+    text-align: center;
+    color: bisque;
+    text-decoration: none;
+    background-color: #1e3d59;
+    border-radius: 10px;
+}
+
+.mood {
+    height: 500px;
+    background-image: url("mood-background.png");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding: 100px 20px 20px;
+}
+
+.mood a {
+    color: bisque;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0c263f, #285f89);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+}
