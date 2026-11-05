@@ -26,6 +26,121 @@
         <a href="adventurous.html">Adventurous</a>
         <a href="romantic.html">Romantic</a>
     </div>
+       <h1>🎡 Mood Suggestion Wheel</h1>
+
+        <div class="wheel-wrap">
+            <div class="pointer" aria-hidden="true"></div>
+            <canvas id="wheel" width="350" height="350" aria-label="Mood suggestion wheel"></canvas>
+        </div>
+        <br>
+
+        <button id="spinButton" type="button">SPIN THE WHEEL</button>
+
+        <p id="result"></p>
+        <a id="link"></a>
+    </main>
+
+    <footer>Made by tanish267025</footer>
+
+    <script>
+        const moods = ["Happy", "Sad", "Romantic", "Sci-Fi"];
+        const colors = ["#ffcc00", "#2196f3", "#ff4081", "#9c27b0"];
+        const canvas = document.getElementById("wheel");
+        const ctx = canvas.getContext("2d");
+        const spinButton = document.getElementById("spinButton");
+        const result = document.getElementById("result");
+        const link = document.getElementById("link");
+
+        let rotation = 0;
+        let spinning = false;
+
+        function drawWheel() {
+            let angle = (2 * Math.PI) / moods.length;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(175, 175);
+            ctx.rotate(rotation);
+            ctx.translate(-175, -175);
+
+            moods.forEach((mood, i) => {
+                ctx.beginPath();
+                ctx.moveTo(175, 175);
+                ctx.arc(175, 175, 170,
+                    i * angle, (i + 1) * angle);
+                ctx.fillStyle = colors[i];
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(175, 175);
+                ctx.rotate(i * angle + angle / 2);
+                ctx.fillStyle = "white";
+                ctx.font = "bold 18px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText(mood, 105, 5);
+                ctx.restore();
+            });
+
+            ctx.restore();
+        }
+
+        drawWheel();
+
+        function spinWheel() {
+            if (spinning) return;
+            spinning = true;
+            spinButton.disabled = true;
+            result.textContent = "";
+            link.removeAttribute("href");
+            link.textContent = "";
+
+            const random = Math.floor(Math.random() * moods.length);
+            const pages = {
+                "Happy": "happy.html",
+                "Sad": "sad.html",
+                "Romantic": "romantic.html",
+                "Sci-Fi": "scifi.html"
+            };
+
+            const segmentAngle = (2 * Math.PI) / moods.length;
+            const currentNormalized = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+            const pointerAngle = -Math.PI / 2;
+            let target = Math.PI * 4 + pointerAngle - (random * segmentAngle + segmentAngle / 2);
+            target -= currentNormalized;
+
+            const startRotation = rotation;
+            const targetRotation = startRotation + target;
+            const startTime = performance.now();
+            const duration = 3500;
+
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3);
+            }
+
+            function animate(now) {
+                const elapsed = Math.min((now - startTime) / duration, 1);
+                rotation = startRotation + (targetRotation - startRotation) * easeOutCubic(elapsed);
+                drawWheel();
+
+                if (elapsed < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    rotation = targetRotation;
+                    drawWheel();
+                    const selectedMood = moods[random];
+                    result.textContent = "Your Mood: " + selectedMood;
+                    link.href = pages[selectedMood];
+                    link.textContent = "Click here for " + selectedMood + " suggestions";
+                    spinning = false;
+                    spinButton.disabled = false;
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        spinButton.addEventListener("click", spinWheel);
+    </script>
+
     <footer>
         <h7>@2026 MOODIEQUEST</h7>
         <p>made by tanish (267025)</p>
