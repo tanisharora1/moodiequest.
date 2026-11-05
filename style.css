@@ -207,3 +207,53 @@ footer {
     border-radius: 15px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
 }
+
+        .wheel-wrap {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 20px auto;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: purple;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #ffcc00;
+            outline-offset: 3px;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            min-height: 27px;
+        }
+
+        .pointer {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            transform: translateX(-50%);
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 22px solid #222;
+            z-index: 2;
+        }
+
+        footer {
+            padding: 15px;
+            color: #555;
+            font-size: 14px;
+        }
